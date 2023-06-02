@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const raceModeSelect = document.getElementById('race-mode');
     const playBtn = document.getElementById('play-btn');
     const scoreboard = document.getElementById('scoreboard');
+    const col1 = document.getElementById('col1');
+    const col3 = document.getElementById('col3');
     const gameboard = document.getElementById('gameboard');
     const winnerText = document.getElementById('winner-text');
     const restartBtn = document.getElementById('restart-btn');
+    const turnMessage = document.getElementById('turnMessage');
 
     let currentPlayer;
     let currentPlayerName;
@@ -66,17 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function createGameboard() {
         gameboard.innerHTML = '';
         cells = [];
-
+      
         for (let i = 0; i < 9; i++) {
-            const cell = document.createElement('div');
-            cell.className = 'cell';
-            cell.addEventListener('click', function () {
-                cellClicked(i);
-            });
-            gameboard.appendChild(cell);
-            cells.push(cell);
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.addEventListener('click', handleCellClick); // Attach the event listener
+          gameboard.appendChild(cell);
+          cells.push(cell);
         }
-    }
+      }
 
     function cellClicked(index) {
         const cell = cells[index];
@@ -267,4 +268,58 @@ document.addEventListener('DOMContentLoaded', function () {
             player2Input.style.display = 'none';
         }
     });
+
+    function updateTurnMessage() {
+        if (currentPlayer === 'player1') {
+            turnMessage.textContent = `${player1Name}'s turn`;
+        } else if (currentPlayer === 'player2') {
+            turnMessage.textContent = `${player2Name}'s turn`;
+        }
+    }
+
+
+    function switchPlayer() {
+    currentPlayer = (currentPlayer === 'player1') ? 'player2' : 'player1';
+    currentPlayerName = (currentPlayer === 'player1') ? player1Name : player2Name;
+  updateTurnMessage(); // Call updateTurnMessage() after switching players
+}
+
+    
+function handleCellClick(event) {
+    const cell = event.target;
+
+    if (cell.textContent !== '') {
+        return;
+    }
+
+    cell.textContent = currentPlayer === 'player1' ? 'X' : 'O';
+
+    if (checkWin()) {
+        tallyScore();
+        clearGameboard();
+
+        if (checkGameWin()) {
+        declareGameWinner();
+    }
+        return;
+    }
+
+    if (checkDraw()) {
+        clearGameboard();
+        return;
+    }
+
+    currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';
+    currentPlayerName = currentPlayer === 'player1' ? player1Name : player2Name;
+
+    if (gameModeSelect.value === 'bot' && currentPlayer === 'player2') {
+        botMove();
+    }
+
+    updateTurnMessage(); // Update the turn message after each cell click
+    }
+
+  // Call updateTurnMessage() when the game starts
+    updateTurnMessage();
+
 });
