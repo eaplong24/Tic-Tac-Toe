@@ -1,0 +1,116 @@
+body {
+  background-color: #ee7676;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  font-family: 'Bruno Ace SC',  'Montserrat', sans-serif;
+}
+
+#section1 {
+  color: white;
+  background-color: #2d142c;
+  width: 40vw;
+  text-align: center;
+  font-size: 2rem;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+h1 {
+  letter-spacing: 10px;
+}
+
+span {
+  color: #ee4540;
+}
+
+#game-mode, input, #race-mode{
+  font-size: 1.5rem;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#play-btn {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: #ee7676;
+  width: 200px;
+  color: white;
+  cursor: pointer;
+}
+
+#play-btn:hover {
+  background-color: white;
+  color: #2d142c;
+}
+
+#section2,  
+#section3 {
+    display: none;
+}
+
+#section2 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255,255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 30px;
+}
+
+.container .row {
+  display: flex !important;
+  justify-content: space-between !important;
+  font-size: 1.7rem !important;
+  font-weight: bold !important;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 50px;
+}
+
+.cell {
+    font-family: 'Permanent Marker';
+    width: 150px;
+    height: 150px;
+    border: 4px solid #2d142c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 170px;
+    cursor: pointer;
+}
+
+#section3 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255,255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 30px;
+  text-align: center;
+  align-items: center;
+}
+
+#restart-btn {
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: #7a3177;
+  width: 150px;
+  color: white;
+}
+
+#restart-btn:hover {
+  background-color: white;
+  color: #2d142c;
+  cursor: pointer;
+}

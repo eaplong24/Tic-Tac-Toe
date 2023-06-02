@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
+</head>
+<body>
+    <div id="section1">
+        <h1>TIC - <span>TAC</span> - TOE</h1>
+        <label for="game-mode">Choose game mode:</label><br>
+        <select id="game-mode">
+            <option value="bot">Play vs Bot</option>
+            <option value="multiplayer">Play Multiplayer</option>
+        </select>
+        <br>
+        <label for="player1-name">Player 1 Name:</label>
+        <input type="text" id="player1-name"><br>
+        <div id="player2-input" style="display: none;">
+            <label for="player2-name">Player 2 Name:</label>
+            <input type="text" id="player2-name"><br>
+        </div>
+        <label for="race-mode">Choose race mode:</label><br>
+        <select id="race-mode">
+            <option value="1">Race to 1</option>
+            <option value="3">Race to 3</option>
+            <option value="5">Race to 5</option>
+            <option value="7">Race to 7</option>
+            <option value="9">Race to 9</option>
+            <option value="10">Race to 10</option>
+        </select>
+        <br>
+        <button id="play-btn">Play</button>
+    </div>
+
+    <div id="section2" class="d-flex">
+        <div   class="container" id="scoreboard">
+            <div class="row">
+                <div id="col1" class="col-4">
+                </div>
+                <div class="col-4">
+                    vS
+                </div>
+                <div id="col3" class="col-4">
+                </div>
+            </div>
+        </div >
+        
+        <div id="gameboard">
+            <div class="row">
+                <div class="cell" onclick="cellClicked(0)"></div>
+                <div class="cell" onclick="cellClicked(1)"></div>
+                <div class="cell" onclick="cellClicked(2)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="cellClicked(3)"></div>
+                <div class="cell" onclick="cellClicked(4)"></div>
+                <div class="cell" onclick="cellClicked(5)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="cellClicked(6)"></div>
+                <div class="cell" onclick="cellClicked(7)"></div>
+                <div class="cell" onclick="cellClicked(8)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section3">
+        <h2 id="winner-text"></h2>
+        <button id="restart-btn" onclick="restartGame()">Restart</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
